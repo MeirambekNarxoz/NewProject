@@ -42,7 +42,7 @@ public class CarService {
        return mapper.toDtoList(repository.findAll());
     }
 
-    public Car updateCar(Long id, CarRequest updateRequest) {
+    public void updateCar(Long id, CarRequest updateRequest) {
         if (this.repository.existsById(id)) {
             Car existingCar = this.repository.findById(id).orElse(null);
             if (existingCar != null) {
@@ -76,10 +76,10 @@ public class CarService {
                 if (updateRequest.getDescription() != null) {
                     existingCar.setDescription(updateRequest.getDescription());
                 }
-                return repository.save(existingCar);
+                Car savedCar = repository.save(existingCar);
+                mapper.toDto(savedCar);
             }
         }
-        return null;
     }
 
     public void deleteCar(Long id) {
