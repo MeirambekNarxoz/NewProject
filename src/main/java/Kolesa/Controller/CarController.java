@@ -15,13 +15,13 @@ public class CarController {
     private final CarService service;
 
     @GetMapping
-    public List<Car> getAllCars() {
+    public List<CarRequest> getAllCars() {
         return service.getAllCars();
     }
 
     @GetMapping(value = "/{id}")
-    public void getCarById(@PathVariable Long id) {
-        service.deleteCar(id);
+    public CarRequest getCarById(@PathVariable Long id) {
+       return service.getCarById(id);
     }
 
     @PostMapping

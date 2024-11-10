@@ -1,5 +1,6 @@
 package Kolesa.Service;
 
+import Kolesa.Mapper.CarMapper;
 import Kolesa.Model.Car;
 import Kolesa.Repository.CarRepository;
 import lombok.RequiredArgsConstructor;
@@ -7,15 +8,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import Kolesa.Dto.Request.CarRequest;  // Import the CarRequest DTO
+import Kolesa.Dto.Request.CarRequest;
 
 @Service
 @RequiredArgsConstructor
 public class CarService {
     private final CarRepository repository;
-
+    private final CarMapper mapper;
     public void addCar(CarRequest request) {
-        Car car = new Car();
+        Car car = mapper.toModel(request);
+
         car.setMake(request.getMake());
         car.setModel(request.getModel());
         car.setYear(request.getYear());
@@ -27,15 +29,17 @@ public class CarService {
         car.setRelease_date(request.getReleaseDate());
         car.setDescription(request.getDescription());
 
-        repository.save(car);
+        Car savedCar = repository.save(car);
+        mapper.toDto(savedCar);
     }
 
-    public Car getCarById(Long id) {
-        return repository.findById(id).orElse(null);
+
+    public CarRequest getCarById(Long id) {
+        return mapper.toDto(repository.findById(id).orElse(null));
     }
 
-    public List<Car> getAllCars() {
-        return repository.findAll();
+    public List<CarRequest> getAllCars() {
+       return mapper.toDtoList(repository.findAll());
     }
 
     public Car updateCar(Long id, CarRequest updateRequest) {
