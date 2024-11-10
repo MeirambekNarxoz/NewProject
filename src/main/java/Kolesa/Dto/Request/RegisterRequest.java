@@ -1,15 +1,19 @@
-package Kolesa.Dto;
+package Kolesa.Dto.Request;
 
+import Kolesa.Model.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
 @Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class RegisterRequest {
+    private Long id;
+    private String name;
     private String email;
     private String password;
+    private String contact;
 }

@@ -14,7 +14,7 @@ import lombok.Setter;
 public class Wheel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String size;
     private String type;
     private Double price;

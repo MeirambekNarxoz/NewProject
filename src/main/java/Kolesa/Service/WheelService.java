@@ -1,6 +1,6 @@
 package Kolesa.Service;
 
-import Kolesa.Dto.WheelRequest;
+import Kolesa.Dto.Request.WheelRequest;
 import Kolesa.Model.Wheel;
 import Kolesa.Repository.WheelRepository;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +39,8 @@ public class WheelService {
     }
 
     public Wheel updateWheel(Long id, WheelRequest updateWheel) {
-        return repository.findById(id).map(existingWheel -> {
+        if(this.repository.existsById(id)){
+            Wheel existingWheel=repository.findById(id).orElse(null);
             if (updateWheel.getSize() != null) {
                 existingWheel.setSize(updateWheel.getSize());
             }
@@ -56,6 +57,7 @@ public class WheelService {
                 existingWheel.setDescription(updateWheel.getDescription());
             }
             return repository.save(existingWheel);
-        }).orElse(null);
+        }
+        return null;
     }
 }

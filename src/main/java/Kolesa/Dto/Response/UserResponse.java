@@ -1,4 +1,4 @@
-package Kolesa.Dto;
+package Kolesa.Dto.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package Kolesa.Dto;
+package Kolesa.Dto.Request;
 
 import jakarta.persistence.Column;
 import lombok.AllArgsConstructor;

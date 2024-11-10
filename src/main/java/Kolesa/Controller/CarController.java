@@ -1,6 +1,6 @@
 package Kolesa.Controller;
 
-import Kolesa.Dto.CarRequest;
+import Kolesa.Dto.Request.CarRequest;
 import Kolesa.Model.Car;
 import Kolesa.Service.CarService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +20,8 @@ public class CarController {
     }
 
     @GetMapping(value = "/{id}")
-    public Car getCarById(@PathVariable Long id) {
-        return service.getCarById(id);
+    public void getCarById(@PathVariable Long id) {
+        service.deleteCar(id);
     }
 
     @PostMapping

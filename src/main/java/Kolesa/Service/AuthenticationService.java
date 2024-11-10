@@ -1,7 +1,7 @@
 package Kolesa.Service;
 
-import Kolesa.Dto.AuthenticationRequest;
-import Kolesa.Dto.RegisterRequest;
+import Kolesa.Dto.Request.AuthenticationRequest;
+import Kolesa.Dto.Request.RegisterRequest;
 import Kolesa.Model.Role;
 import Kolesa.Model.User;
 import Kolesa.Repository.RoleRepository;

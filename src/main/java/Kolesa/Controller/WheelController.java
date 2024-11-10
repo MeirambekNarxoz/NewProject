@@ -1,6 +1,6 @@
 package Kolesa.Controller;
 
-import Kolesa.Dto.WheelRequest;
+import Kolesa.Dto.Request.WheelRequest;
 import Kolesa.Model.Wheel;
 import Kolesa.Service.WheelService;
 import lombok.RequiredArgsConstructor;

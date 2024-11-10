@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import Kolesa.Dto.CarRequest;  // Import the CarRequest DTO
+import Kolesa.Dto.Request.CarRequest;  // Import the CarRequest DTO
 
 @Service
 @RequiredArgsConstructor
